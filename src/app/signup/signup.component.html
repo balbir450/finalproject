@@ -1,0 +1,145 @@
+<div class="register-box">
+    <div class="register-logo">
+        <a [routerLink]="['/']"><img src="assets/website/img/mainlogo.png" alt=""></a>
+    </div>
+   
+
+    <div class="card rounded-0">
+        <h1 style="background-color:powderblue;"> Register First</h1>
+        <div class="card-body register-card-body">
+            <p class="login-box-msg">Join us to manage your property</p>
+
+            <form  method="post" [formGroup]="signUpForm">
+ 
+                <div class="form-group">
+             
+            <div class="row">
+                <div class="col-12">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control rounded-0" formControlName="firstname" placeholder="First Name">
+                        <div class="input-group-append input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                        
+                       
+                    
+                     </div>
+                    
+                          
+                       
+                       
+                    
+                </div>
+                <div class="em">
+                    <div *ngIf="signUpForm.get('firstname')?.errors?.required  && signUpForm.get('firstname').dirty">
+                      First name is required
+                    </div>
+                    <div *ngIf="signUpForm.get('firstname')?.errors?.pattern  && signUpForm.get('firstname').dirty">
+                      Invalid first name
+                    </div>
+                    <div
+                      *ngIf="(signUpForm.get('firstname')?.errors?.minlength || signUpForm.get('firstname')?.errors?.maxlength) && signUpForm.get('firstname').dirty">
+                      First name should contain manimum 2 and maximum 100 charactor
+                    </div>
+                  </div>
+
+                <div class="col-12">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control rounded-0" formControlName="lastname" placeholder="Lastname">
+                        <div class="input-group-append input-group-text">
+                            <span class="fas fa-user"></span>
+                          </div>
+                       
+                    </div>
+                </div>
+            </div>
+           
+            <div class="input-group mb-3">
+                <input type="email" class="form-control rounded-0" formControlName="email" placeholder="Email">
+                <div class="input-group-append input-group-text">
+                    <span class="fas fa-envelope"></span>
+                </div>
+                
+                </div>
+            <div *ngIf="signUpForm.get('email')?.errors?.required  && signUpForm.get('email').dirty" >
+                Email address is required
+              </div>
+             
+              <div *ngIf="signUpForm.get('email')?.errors?.email  && signUpForm.get('email').dirty" >
+                Invalid Email address
+              </div>
+             
+            <div class="input-group mb-3">
+                <input type="number" class="form-control rounded-0" formControlName="mobile" placeholder="Mobile No.">
+                <div class="input-group-append input-group-text">
+                    <span class="fas fa-phone-alt"></span>
+                </div>
+              
+            </div>
+              
+            <div *ngIf="signUpForm.get('mobile')?.errors?.required  && signUpForm.get('mobile').dirty" class="valerror" >
+                Mobile is required</div>
+              <div class="valerror" *ngIf="signUpForm.get('mobile')?.errors?.pattern  && signUpForm.get('mobile').dirty" >
+                Invalid Mobile Number 
+              </div>
+            <div class="input-group mb-3">
+                <input type="password" class="form-control rounded-0" formControlName="password" placeholder="Password">
+                <div class="input-group-append input-group-text">
+                    <span class="fas fa-lock"></span>
+                   
+                </div>
+                </div>
+            <p class="help-block" *ngIf="signUpForm.get('password').hasError('required') && signUpForm.get('password').touched">Password required</p>
+            <div class="valerror" *ngIf="signUpForm.get('password')?.errors?.pattern  && signUpForm.get('password').dirty" >
+                Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+                letter and 1 number
+              </div>
+            <div class="input-group mb-3">
+                <input type="password"  class="form-control rounded-0" formControlName="confirmPassword"  placeholder="Retype password">
+                <div class="input-group-append input-group-text">
+                    <span class="fas fa-lock"></span>
+                
+                    <!-- <div class="valerror"
+                    *ngIf="signUpForm?.errors?.isConfirmNewPasswordNotSame && signUpForm.get('confirmPassword').dirty">
+                    Confirm Password value do not match.
+                  </div> -->
+
+                  
+            </div>
+            <div  *ngIf="signUpForm?.errors?.isConfirmNewPasswordNotSame && signUpForm.get('confirmPassword').dirty" class="input-group mb-3"
+                   >
+                    Confirm Password value do not match.
+                  </div>
+<br>
+                 
+
+
+           
+
+            <!-- /.col -->
+
+            <!-- /.col -->
+            <br>
+            <br>
+            <div class="container">
+                <div class="text-center">
+                 
+              
+            <div class="input-group mb-3">
+                <button type="submit" >Register</button>
+            </div>
+            </div>
+            </div>
+             
+            </div>
+        </div>
+           
+        </form>
+
+
+
+
+        </div>
+        <!-- /.form-box -->
+    </div><!-- /.card -->
+</div>
